@@ -65,48 +65,48 @@
 //        }
 //}
 
-//int main()
-//{
-//        CSoftBus*  csoftbus = new CSoftBus();
-//        csoftbus->initial("/home/msj/1.xml");
-//        // 开启接收线程进行监听
-//        csoftbus->softBusReceive();
-//        pthread_t  tid_main;
-//        pthread_create(&tid_main,NULL,func1,(void *)csoftbus);
+int main()
+{
+        CSoftBus*  csoftbus = new CSoftBus();
+        csoftbus->initial("/home/msj/1.xml");
+        // 开启接收线程进行监听
+        csoftbus->softBusReceive();
+        pthread_t  tid_main;
+        pthread_create(&tid_main,NULL,func1,(void *)csoftbus);
 
-//        char tempdown[9]={0x59,0xE9,0x7b,0x20,0x22,0x37,0xd5,0xdf,0x7d};
-//    UPtemp * uptemp_datasend = new UPtemp;
-//    uptemp_datasend->moment = 128;
-//    uptemp_datasend->range = 64;
-//    AMPlitude * amplitude_datasend = new AMPlitude;
-//    amplitude_datasend->width = 12;
-//    amplitude_datasend->height = 58;
-//    amplitude_datasend->thickness = 64;
+        char tempdown[9]={0x59,0xE9,0x7b,0x20,0x22,0x37,0xd5,0xdf,0x7d};
+    UPtemp * uptemp_datasend = new UPtemp;
+    uptemp_datasend->moment = 128;
+    uptemp_datasend->range = 64;
+    AMPlitude * amplitude_datasend = new AMPlitude;
+    amplitude_datasend->width = 12;
+    amplitude_datasend->height = 58;
+    amplitude_datasend->thickness = 64;
 
-//    printf("***********************************Demo***********************************");
-//    printf("***********共有以下十种指令***********\n");
-//    printf("1. 升温: (命令帧)moment 128; range 64\n");
-//    printf("2. 幅度: (数据帧)width 12; height 58;thickness 64 \n");
-//    printf("3. 降温: (批量传输帧) 0x59,0xE9,0x7b,0x20,0x22,0x37,0xd5,0xdf,0x7d\n");
-//    printf("请输入发送的序列号（0-3）:\n");
-//    printf("输入‘q’退出\n");
-//    char  user_input;
-//    user_input = getchar();
-//    do
-//    {
-//        if(user_input == '0')
-//            csoftbus->SingleLinkDetect(5,10);
-//      else  if(user_input == '1')
-//            csoftbus->commandSend((char*)uptemp_datasend,sizeof(UPtemp),400);
-//        else if	(user_input == '2')
-//            csoftbus->variableSend((char*)amplitude_datasend,sizeof(AMPlitude),100);
-//        else if(user_input == '3')
-//            csoftbus->DatablockSend(tempdown,9,0,0,10,1);
-//        user_input = getchar();
-//    }while(user_input != 'q');
+    printf("***********************************Demo***********************************");
+    printf("***********共有以下十种指令***********\n");
+    printf("1. 升温: (命令帧)moment 128; range 64\n");
+    printf("2. 幅度: (数据帧)width 12; height 58;thickness 64 \n");
+    printf("3. 降温: (批量传输帧) 0x59,0xE9,0x7b,0x20,0x22,0x37,0xd5,0xdf,0x7d\n");
+    printf("请输入发送的序列号（0-3）:\n");
+    printf("输入‘q’退出\n");
+    char  user_input;
+    user_input = getchar();
+    do
+    {
+        if(user_input == '0')
+            csoftbus->SingleLinkDetect(5,10);
+      else  if(user_input == '1')
+            csoftbus->commandSend((char*)uptemp_datasend,sizeof(UPtemp),400);
+        else if	(user_input == '2')
+            csoftbus->variableSend((char*)amplitude_datasend,sizeof(AMPlitude),100);
+        else if(user_input == '3')
+            csoftbus->DatablockSend(tempdown,9,0,0,10,1);
+        user_input = getchar();
+    }while(user_input != 'q');
 
-//        return 0;
-//}
+        return 0;
+}
 
 
 
