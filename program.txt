@@ -2,3 +2,7 @@ main()
 {
 print "hello word"
 }
+metho()
+{
+print "my name is aaaa"
+}
