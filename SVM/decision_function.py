@@ -25,7 +25,7 @@ clf=svm.SVC(C=1,kernel='rbf',gamma=10,decision_function_shape='ovr')
 clf.fit(x,y)
 y_hat=clf.predict(x)
 acc=accuracy_score(y,y_hat)
-np.set_printoptions(suppress=True)
+np.set_printoptions(suppress=True) #使用set_printoptions设置输出精度
 print(u'预测正确的样本个数：%d，正确率：%.2f%%' % (round(acc*4*N), 100*acc))
 print(clf.decision_function(x))
 print(y_hat)
