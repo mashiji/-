@@ -70,3 +70,6 @@ if __name__ == "__main__":
     plt.subplots_adjust(top=0.92)
     plt.savefig('1.png')
     plt.show()
+
+    
+    
