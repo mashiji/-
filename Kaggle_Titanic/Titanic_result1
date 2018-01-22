@@ -141,3 +141,12 @@ if __name__=='__main__':
     print('Logistic:%.3f%%' %lr_rate)
     print('随机森林:%.2f%%' % rfc_rate)
     print('xgboost:%.2f%%' % xgb_rate)
+
+
+#转换生成的文件格式
+import pandas as pd 
+import numpy as np
+file_name = r'C:\Users\mashiji\Desktop\prediction_2.csv' 
+data=pd.read_csv(file_name)
+data=data.dropna()
+data.to_csv('msj2.csv',index=False)
